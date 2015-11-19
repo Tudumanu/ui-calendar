@@ -269,9 +269,11 @@ function CalendarCtrl($scope,$compile,uiCalendarConfig) {
     };
     /* Change View */
     $scope.renderCalender = function(calendar) {
-      if(uiCalendarConfig.calendars[calendar]){
-        uiCalendarConfig.calendars[calendar].fullCalendar('render');
-      }
+      $timeout(function() {
+        if(uiCalendarConfig.calendars[calendar]){
+          uiCalendarConfig.calendars[calendar].fullCalendar('render');
+        }
+      });
     };
      /* Render Tooltip */
     $scope.eventRender = function( event, element, view ) { 
